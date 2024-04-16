@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AllStocksActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="159dp"
+            android:background="@drawable/top_background">
+
+            <TextView
+                android:id="@+id/textassettrackr5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:shadowColor="@color/black"
+                android:shadowDx="3"
+                android:shadowDy="3"
+                android:shadowRadius="3"
+                android:text="AssetTrackr"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.106"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.272" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="116dp"
+                android:layout_height="101dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/assettrackr" />
+
+            <TextView
+                android:id="@+id/textallstocks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Stocks"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.75" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSEPC"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="-300dp"
+        android:background="@drawable/btnforpurposes"
+        android:text="SEPC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnInfosys"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btnforpurposes"
+        android:text="INFOSYS"
+        app:layout_constraintEnd_toEndOf="@+id/btnSEPC"
+        app:layout_constraintStart_toStartOf="@+id/btnSEPC"
+        app:layout_constraintTop_toBottomOf="@+id/btnSEPC" />
+
+    <Button
+        android:id="@+id/btnDLF"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btnforpurposes"
+        android:text="DLF"
+        app:layout_constraintEnd_toEndOf="@+id/btnInfosys"
+        app:layout_constraintStart_toStartOf="@+id/btnInfosys"
+        app:layout_constraintTop_toBottomOf="@+id/btnInfosys" />
+
+    <Button
+        android:id="@+id/btnIRCTC"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btnforpurposes"
+        android:text="IRCTC"
+        app:layout_constraintEnd_toEndOf="@+id/btnDLF"
+        app:layout_constraintStart_toStartOf="@+id/btnDLF"
+        app:layout_constraintTop_toBottomOf="@+id/btnDLF" />
+
+    <Button
+        android:id="@+id/btnMRF"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btnforpurposes"
+        android:text="MRF"
+        app:layout_constraintEnd_toEndOf="@+id/btnIRCTC"
+        app:layout_constraintStart_toStartOf="@+id/btnIRCTC"
+        app:layout_constraintTop_toBottomOf="@+id/btnIRCTC" />
+
+    <Button
+        android:id="@+id/btnReliance"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btnforpurposes"
+        android:text="Reliance Industries"
+        app:layout_constraintEnd_toEndOf="@+id/btnMRF"
+        app:layout_constraintStart_toStartOf="@+id/btnMRF"
+        app:layout_constraintTop_toBottomOf="@+id/btnMRF" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
