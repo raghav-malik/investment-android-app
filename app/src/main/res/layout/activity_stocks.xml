@@ -7,6 +7,7 @@
     tools:context=".StocksActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -28,7 +29,7 @@
                 android:id="@+id/textPortfolio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pavan's Portfolio"
+                android:text="Raghav's Portfolio"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -49,6 +50,82 @@
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="30dp" />
+
+            <TextView
+                android:id="@+id/textinvested"
+                android:layout_width="56dp"
+                android:layout_height="20dp"
+                android:text="Invested"
+                android:textColor="@color/white"
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="136dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="101dp"
+                android:layout_height="43dp"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="156dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnEquity"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:background="@drawable/btnforpurposes"
+        android:drawableLeft="@drawable/equity"
+        android:paddingLeft="10dp"
+        android:paddingRight="230dp"
+        android:text="Equity"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnDebt"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btnforpurposes"
+        android:drawableLeft="@drawable/loan"
+        android:paddingLeft="10dp"
+        android:paddingRight="230dp"
+        android:text="Debt"
+        app:layout_constraintEnd_toEndOf="@+id/btnEquity"
+        app:layout_constraintStart_toStartOf="@+id/btnEquity"
+        app:layout_constraintTop_toBottomOf="@id/btnEquity" />
+
+    <Button
+        android:id="@+id/btnRealestate"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btnforpurposes"
+        android:drawableLeft="@drawable/real_estate"
+        android:paddingLeft="10dp"
+        android:paddingRight="200dp"
+        android:text="Real Estate"
+        app:layout_constraintEnd_toEndOf="@+id/btnDebt"
+        app:layout_constraintStart_toStartOf="@+id/btnDebt"
+        app:layout_constraintTop_toBottomOf="@+id/btnDebt" />
+
+    <Button
+        android:id="@+id/btnGold"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btnforpurposes"
+        android:drawableLeft="@drawable/gold"
+        android:paddingLeft="10dp"
+        android:paddingRight="230dp"
+        android:text="Gold"
+        app:layout_constraintEnd_toEndOf="@+id/btnRealestate"
+        app:layout_constraintStart_toStartOf="@+id/btnRealestate"
+        app:layout_constraintTop_toBottomOf="@+id/btnRealestate" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
