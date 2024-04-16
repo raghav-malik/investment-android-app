@@ -21,36 +21,42 @@
                 android:id="@+id/texteditprofile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="52dp"
                 android:text="Edit Profile"
                 android:textColor="@color/white"
                 android:textSize="30dp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.209" />
 
             <TextView
                 android:id="@+id/textaccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="52dp"
                 android:text="Acc ID: XXXXX"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.788"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.536" />
+                app:layout_constraintVertical_bias="0.54" />
 
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="149dp"
                 android:layout_height="107dp"
-                app:srcCompat="@drawable/pawanpic"
-                tools:layout_editor_absoluteX="57dp"
-                tools:layout_editor_absoluteY="113dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.272"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.657"
+                app:srcCompat="@drawable/pawanpic" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
@@ -207,7 +213,11 @@
         android:id="@+id/imageView7"
         android:layout_width="158dp"
         android:layout_height="126dp"
-        app:srcCompat="@drawable/assetracker"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="589dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.949"
+        app:srcCompat="@drawable/assetracker" />
 </androidx.constraintlayout.widget.ConstraintLayout>

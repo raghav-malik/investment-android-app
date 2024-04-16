@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GoldActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="412dp"
+        android:layout_height="291dp"
+        android:background="@drawable/top_background"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="286dp">
+
+            <TextView
+                android:id="@+id/textassettrackr3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:shadowColor="@color/black"
+                android:shadowDx="3"
+                android:shadowDy="3"
+                android:shadowRadius="3"
+                android:text="AssetTrackr"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="25dp"
+                tools:layout_editor_absoluteY="31dp" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="105dp"
+                android:layout_height="98dp"
+                app:srcCompat="@drawable/assettrackr"
+                tools:layout_editor_absoluteX="291dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/textgoldassets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gold Assets"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="135dp"
+                tools:layout_editor_absoluteY="87dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btngoldeft"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/btnforpurposes"
+        android:paddingLeft="15dp"
+        android:text="Gold EFT's"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btngoldmutualfunds"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btnforpurposes"
+        android:paddingLeft="15dp"
+        android:text="Gold Mutual Fund's"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="@+id/btngoldeft"
+        app:layout_constraintStart_toStartOf="@+id/btngoldeft"
+        app:layout_constraintTop_toBottomOf="@+id/btngoldeft" />
+
+    <Button
+        android:id="@+id/btndigitalgold"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btnforpurposes"
+        android:paddingLeft="15dp"
+        android:text="Digital Gold"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="@+id/btngoldmutualfunds"
+        app:layout_constraintStart_toStartOf="@+id/btngoldmutualfunds"
+        app:layout_constraintTop_toBottomOf="@+id/btngoldmutualfunds" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
