@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ProfileActivity">
+
+    <Button
+        android:id="@+id/editprofilebtn"
+        android:layout_width="354dp"
+        android:layout_height="29dp"
+        android:background="@drawable/btn_register3"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:text="Edit profile"
+        app:circularflow_radiusInDP="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.089" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_background"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="270dp">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="92dp"
+                android:layout_height="84dp"
+                android:layout_marginStart="68dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.634"
+                app:srcCompat="@drawable/pawanpic" />
+
+            <TextView
+                android:id="@+id/Profileid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Profile"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/nameid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Pawan Kalvokota"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+            <EditText
+                android:id="@+id/accountid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Acc ID: XXXXX"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/nameid"
+                app:layout_constraintStart_toStartOf="@+id/nameid"
+                app:layout_constraintTop_toBottomOf="@+id/nameid" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/accountsettingsbtn"
+        android:layout_width="352dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_register3"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:text="Account Settings"
+        app:layout_constraintEnd_toEndOf="@+id/editprofilebtn"
+        app:layout_constraintStart_toStartOf="@+id/editprofilebtn"
+        app:layout_constraintTop_toBottomOf="@+id/editprofilebtn" />
+
+    <Button
+        android:id="@+id/aboutusbtn"
+        android:layout_width="352dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_register3"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:text="About us"
+        app:layout_constraintEnd_toEndOf="@+id/accountsettingsbtn"
+        app:layout_constraintStart_toStartOf="@+id/accountsettingsbtn"
+        app:layout_constraintTop_toBottomOf="@+id/accountsettingsbtn" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="149dp"
+        android:layout_height="126dp"
+        app:srcCompat="@drawable/assetracker"
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="495dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
