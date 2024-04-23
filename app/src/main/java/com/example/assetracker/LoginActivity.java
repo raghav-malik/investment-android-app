@@ -1,12 +1,13 @@
 package com.example.assetracker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.assetracker.API.api;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -15,12 +16,17 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         TextView btn= findViewById(R.id.TextViewSignUp);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
-            }
-        });
+        JsonObject user1 =  new JsonObject();
+        user1.addProperty("username", "admin");
+        user1.addProperty("password","123456789");
+        JsonArray json= (JsonArray) api.callGenericApi(user1, "assets", "get",null,null,null);
+        System.out.println(json);
+        //        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+//            }
+//        });
 
     }
 }
