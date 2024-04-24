@@ -38,13 +38,13 @@
         android:paddingBottom="10dp"
         android:password="true"
         android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/inputEmail"
+        app:layout_constraintEnd_toEndOf="@+id/inputLoginUsername"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputEmail"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+        app:layout_constraintStart_toStartOf="@+id/inputLoginUsername"
+        app:layout_constraintTop_toBottomOf="@+id/inputLoginUsername" />
 
     <EditText
-        android:id="@+id/inputEmail"
+        android:id="@+id/inputLoginUsername"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -54,7 +54,7 @@
         android:drawableLeft="@drawable/baseline_attach_email_24"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Username"
         android:inputType="text"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
@@ -108,12 +108,14 @@
             android:text="Don't have an account?"
             android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/TextViewSignUp"
+        <Button
+            android:id="@+id/SignUpButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SignUp"
-            android:textColor="@color/black" />
+            android:background="#00FFFFFF"
+            android:text="Sign Up"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
