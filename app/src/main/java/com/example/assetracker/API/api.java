@@ -16,11 +16,12 @@ public class api {
 
     private static String getEncodedCredentials(JsonObject user) {
         String credentials = user.get("username").getAsString() + ":" + user.get("password").getAsString();
-        return "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.DEFAULT);
+        credentials = "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.DEFAULT);
+        return credentials;
     }
 
     private static String urlBuilder(String resource, String queryParams, String id) {
-        String baseUrl = "http://10.7.10.157:8000/api/" + resource + "/";
+        String baseUrl = "http://10.7.12.254:8000/api/" + resource + "/";
         if (queryParams != null && id != null) {
             throw new IllegalArgumentException("queryParams and id both cannot have value at the same time.");
         }
@@ -34,12 +35,27 @@ public class api {
 
     private static JsonElement jsonConverter(String responseBody) {
         Gson gson = new Gson();
-        return gson.fromJson(responseBody, JsonElement.class);
+        JsonElement json = null;
+        try
+        {
+            json = gson.fromJson(responseBody, JsonElement.class);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return json;
     }
 
     public static JsonElement callGenericApi(final JsonObject user, final String resource, final String requestMethod,
                                              final String queryParams, final String id, final String requestBody) {
-        final String authHeaderValue = getEncodedCredentials(user);
+        String authHeader = null;
+        if (user != null)
+        {
+            authHeader = getEncodedCredentials(user);
+        }
+        final String authHeaderValue = authHeader;
         final String url = urlBuilder(resource, queryParams, id);
 
         final StringBuilder response = new StringBuilder();
@@ -86,7 +102,6 @@ public class api {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         return jsonConverter(response.toString());
     }
 }
