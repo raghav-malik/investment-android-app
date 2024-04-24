@@ -70,6 +70,7 @@ class ButtonHandler implements View.OnClickListener
 //            JsonObject json= (JsonObject) api.callGenericApi(user, "login", "get",null,null, null);
             JsonElement obj = api.callGenericApi(user, "assets", "get", null, null, null);
             System.out.println(obj);
+            System.out.println("Hello Guys, Purav this side");
 
         }
 
