@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         user1.addProperty("password","123456789");
         JsonArray json= (JsonArray) api.callGenericApi(user1, "assets", "get",null,null,null);
         System.out.println(json);
+        System.out.println(1);
         //        btn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
