@@ -9,8 +9,9 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="290dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -84,20 +85,22 @@
 
     </LinearLayout>
 
+
     <Button
         android:id="@+id/btnEquity"
         android:layout_width="386dp"
         android:layout_height="71dp"
-        android:background="@drawable/btnforpurposes"
         android:drawableLeft="@drawable/equity"
-        android:paddingLeft="10dp"
-        android:paddingRight="230dp"
+        android:background="@drawable/btnforpurposes"
         android:text="Equity"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+    </Button>
 
     <Button
         android:id="@+id/btnDebt"

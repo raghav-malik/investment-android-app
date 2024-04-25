@@ -2,6 +2,7 @@ package com.example.assetracker;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.assetracker.API.api;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 public class LoginActivity extends AppCompatActivity {
@@ -18,6 +18,18 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+        if (isLoggedIn)
+        {
+            System.out.println("Logged In already");
+            Intent intent;
+            intent = new Intent(this, StocksActivity.class);
+            this.startActivity(intent);
+        }
+        else
+        {
         setContentView(R.layout.activity_login);
 
         Button signup_btn= findViewById(R.id.SignUpButton);
@@ -31,13 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         signup_btn.setOnClickListener(btnHandler);
         login_btn.setOnClickListener(btnHandler);
 
-
-        //        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
-//            }
-//        });
+        }
 
     }
 }
@@ -67,10 +73,27 @@ class ButtonHandler implements View.OnClickListener
             JsonObject user =  new JsonObject();
             user.addProperty("username", username.getText().toString());
             user.addProperty("password",password.getText().toString());
-//            JsonObject json= (JsonObject) api.callGenericApi(user, "login", "get",null,null, null);
-            JsonElement obj = api.callGenericApi(user, "assets", "get", null, null, null);
-            System.out.println(obj);
-            System.out.println("Hello Guys, Purav this side");
+            JsonObject json= (JsonObject) api.callGenericApi(user, "login", "get",null,null, null);
+
+            if (json != null)
+            {
+                SharedPreferences sharedPreferences = context.getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("username", user.get("username").toString());
+                editor.putString("password", user.get("password").toString());
+                editor.putBoolean("isLoggedIn", true);
+                editor.apply();
+                System.out.println("Logged In");
+
+                Intent intent;
+                intent = new Intent(this.context, StocksActivity.class);
+                context.startActivity(intent);
+
+            }
+            else {
+                System.out.println("Not Logged In");
+            }
+
 
         }
 
