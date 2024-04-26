@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         TextView usernameView = findViewById(R.id.inputLoginUsername);
         TextView passwordView = findViewById(R.id.inputPassword);
 
-        ButtonHandler btnHandler = new ButtonHandler(this, usernameView, passwordView);
+        ButtonHandlerLogin btnHandler = new ButtonHandlerLogin(this, usernameView, passwordView);
 
         signup_btn.setOnClickListener(btnHandler);
         login_btn.setOnClickListener(btnHandler);
@@ -48,11 +49,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 }
 
-class ButtonHandler implements View.OnClickListener
+class ButtonHandlerLogin implements View.OnClickListener
 {
     private Context context;
     private TextView username, password;
-    ButtonHandler(Context context, TextView username, TextView password)
+    ButtonHandlerLogin(Context context, TextView username, TextView password)
     {
         this.context = context;
         this.username = username;
@@ -74,7 +75,6 @@ class ButtonHandler implements View.OnClickListener
             user.addProperty("username", username.getText().toString());
             user.addProperty("password",password.getText().toString());
             JsonObject json= (JsonObject) api.callGenericApi(user, "login", "get",null,null, null);
-
             if (json != null)
             {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE);
@@ -88,12 +88,10 @@ class ButtonHandler implements View.OnClickListener
                 Intent intent;
                 intent = new Intent(this.context, StocksActivity.class);
                 context.startActivity(intent);
-
             }
             else {
-                System.out.println("Not Logged In");
+                Toast.makeText(context, "Invalid Username/Password", Toast.LENGTH_SHORT).show();
             }
-
 
         }
 

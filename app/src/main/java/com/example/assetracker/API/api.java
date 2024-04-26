@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class api {
 
@@ -21,7 +22,7 @@ public class api {
     }
 
     private static String urlBuilder(String resource, String queryParams, String id) {
-        String baseUrl = "http://10.7.12.254:8000/api/" + resource + "/";
+        String baseUrl = "http://10.7.11.43:8000/api/" + resource + "/";
         if (queryParams != null && id != null) {
             throw new IllegalArgumentException("queryParams and id both cannot have value at the same time.");
         }
@@ -36,6 +37,7 @@ public class api {
     private static JsonElement jsonConverter(String responseBody) {
         Gson gson = new Gson();
         JsonElement json = null;
+        System.out.println(responseBody);
         try
         {
             json = gson.fromJson(responseBody, JsonElement.class);
@@ -62,6 +64,11 @@ public class api {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
+                ArrayList<Integer> responseCodes = new ArrayList<>();
+                responseCodes.add(200);
+                responseCodes.add(201);
+                responseCodes.add(204);
+                responseCodes.add(400);
                 try {
                     URL apiUrl = new URL(url);
                     HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
@@ -79,7 +86,7 @@ public class api {
                     }
 
                     int responseCode = connection.getResponseCode();
-                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                    if (responseCodes.contains(responseCode)) {
                         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                         String line;
                         while ((line = in.readLine()) != null) {
@@ -98,7 +105,7 @@ public class api {
         });
         thread.start();
         try {
-            thread.join(); // Wait for the thread to finish
+            thread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
