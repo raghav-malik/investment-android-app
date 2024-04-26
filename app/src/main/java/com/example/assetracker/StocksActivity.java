@@ -36,8 +36,10 @@ public class StocksActivity extends AppCompatActivity {
 
     private void fetchDataForPortfolio() {
         SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE);
-        String username = sharedPreferences.getString("username", "admin");
-        String password = sharedPreferences.getString("password", "123456789");
+
+
+        String username = sharedPreferences.getString("username", "admin").replace("\"", "");
+        String password = sharedPreferences.getString("password", "123456789").replace("\"", "");
         JsonObject requestData = new JsonObject();
         requestData.addProperty("username", username);
         requestData.addProperty("password", password);
