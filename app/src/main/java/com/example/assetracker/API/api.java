@@ -22,7 +22,7 @@ public class api {
     }
 
     private static String urlBuilder(String resource, String queryParams, String id) {
-        String baseUrl = "http://10.7.11.43:8000/api/" + resource + "/";
+        String baseUrl = "http://10.7.12.254:8000/api/" + resource + "/";
         if (queryParams != null && id != null) {
             throw new IllegalArgumentException("queryParams and id both cannot have value at the same time.");
         }

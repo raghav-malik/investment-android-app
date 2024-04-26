@@ -2,6 +2,7 @@ package com.example.assetracker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,12 @@ public class StocksActivity extends AppCompatActivity {
     TextView investedAmt;
     TextView textViewreturnsEquity;
     TextView textViewEquityInvested;
+    TextView textViewdebtreturns;
+    TextView textViewdebtprice;
+    TextView textViewgoldreturns;
+    TextView textViewgoldprice;
+    TextView textViewrealestatereturns;
+    TextView textViewrealestateprice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +38,12 @@ public class StocksActivity extends AppCompatActivity {
         investedAmt = findViewById(R.id.textView4);
         textViewreturnsEquity=findViewById(R.id.textViewreturnsEquity);
         textViewEquityInvested=findViewById(R.id.textViewEquityInvested);
+        textViewdebtreturns=findViewById(R.id.textViewdebtreturns);
+        textViewdebtprice=findViewById(R.id.textViewdebtprice);
+        textViewgoldreturns=findViewById(R.id.textViewgoldreturns);
+        textViewgoldprice=findViewById(R.id.textViewgoldprice);
+        textViewrealestatereturns=findViewById(R.id.textViewrealestatereturns);
+        textViewrealestateprice=findViewById(R.id.textViewrealestateprice);
         fetchDataForPortfolio();
     }
 
@@ -45,8 +58,13 @@ public class StocksActivity extends AppCompatActivity {
         requestData.addProperty("password", password);
         JsonElement response = api.callGenericApi(requestData, "portfolio_information", "get", null, null, null);
 
-        if (response != null) {
-            JsonObject responseData = response.getAsJsonObject();
+        JsonObject responseData = response.getAsJsonObject();
+        String InvestedStr = responseData.get("invested").getAsString();
+        double totalInvested = Double.parseDouble(InvestedStr);
+        String totalInvestedAmountString = String.format(Locale.US, "%.2f", totalInvested);
+        investedAmt.setText(totalInvestedAmountString);
+
+        if (responseData != null) {
 
             // Equity
             JsonObject equity = responseData.getAsJsonObject("equity");
@@ -65,9 +83,99 @@ public class StocksActivity extends AppCompatActivity {
 
                 String equityreturnsString = String.format(Locale.US, "%.2f (%s%%)", equityReturnsValue, equityReturnsPercentage);
                 textViewreturnsEquity.setText(equityreturnsString);
+
+                if (equityReturnsValue >= 0) {
+                    textViewreturnsEquity.setTextColor(Color.GREEN);
+                } else {
+                    textViewreturnsEquity.setTextColor(Color.RED);
+                }
             }
             else{
-                Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Failed to get equity data", Toast.LENGTH_SHORT).show();
+            }
+
+            //Debt
+            JsonObject debt = responseData.getAsJsonObject("debt");
+            if(debt != null) {
+                String debtInvestedStr = debt.get("invested").getAsString();
+                double debtInvested = Double.parseDouble(debtInvestedStr);
+
+                String debtReturnsValueStr = debt.get("returns_value").getAsString();
+                double debtReturnsValue = Double.parseDouble(debtReturnsValueStr);
+
+                String debtReturnsPercentageStr = debt.get("returns_percentage").getAsString();
+                double debtReturnsPercentage = Double.parseDouble(debtReturnsPercentageStr);
+
+                String debtInvestedAmountString = String.format(Locale.US, "%.2f", debtInvested);
+                textViewdebtprice.setText(debtInvestedAmountString);
+
+                String debtreturnsString = String.format(Locale.US, "%.2f (%s%%)", debtReturnsValue, debtReturnsPercentage);
+                textViewdebtreturns.setText(debtreturnsString);
+
+                if (debtReturnsValue >= 0) {
+                    textViewdebtreturns.setTextColor(Color.GREEN);
+                } else {
+                    textViewdebtreturns.setTextColor(Color.RED);
+                }
+            }
+            else{
+                Toast.makeText(this, "Failed to get debt data", Toast.LENGTH_SHORT).show();
+            }
+
+            //gold
+            JsonObject gold = responseData.getAsJsonObject("gold");
+            if(gold != null) {
+                String goldInvestedStr = gold.get("invested").getAsString();
+                double goldInvested = Double.parseDouble(goldInvestedStr);
+
+                String goldReturnsValueStr = gold.get("returns_value").getAsString();
+                double goldReturnsValue = Double.parseDouble(goldReturnsValueStr);
+
+                String goldReturnsPercentageStr = gold.get("returns_percentage").getAsString();
+                double goldReturnsPercentage = Double.parseDouble(goldReturnsPercentageStr);
+
+                String goldInvestedAmountString = String.format(Locale.US, "%.2f", goldInvested);
+                textViewgoldprice.setText(goldInvestedAmountString);
+
+                String goldreturnsString = String.format(Locale.US, "%.2f (%s%%)", goldReturnsValue, goldReturnsPercentage);
+                textViewgoldreturns.setText(goldreturnsString);
+
+                if (goldReturnsValue >= 0) {
+                    textViewgoldreturns.setTextColor(Color.GREEN);
+                } else {
+                    textViewgoldreturns.setTextColor(Color.RED);
+                }
+            }
+            else{
+                Toast.makeText(this, "Failed to get gold data", Toast.LENGTH_SHORT).show();
+            }
+
+            //realEstate
+            JsonObject realEstate = responseData.getAsJsonObject("real_estate");
+            if(realEstate != null) {
+                String realEstateInvestedStr = realEstate.get("invested").getAsString();
+                double realEstateInvested = Double.parseDouble(realEstateInvestedStr);
+
+                String realEstateReturnsValueStr = realEstate.get("returns_value").getAsString();
+                double realEstateReturnsValue = Double.parseDouble(realEstateReturnsValueStr);
+
+                String realEstateReturnsPercentageStr = realEstate.get("returns_percentage").getAsString();
+                double realEstateReturnsPercentage = Double.parseDouble(realEstateReturnsPercentageStr);
+
+                String realEstateInvestedAmountString = String.format(Locale.US, "%.2f", realEstateInvested);
+                textViewrealestateprice.setText(realEstateInvestedAmountString);
+
+                String realEstatereturnsString = String.format(Locale.US, "%.2f (%s%%)", realEstateReturnsValue, realEstateReturnsPercentage);
+                textViewrealestatereturns.setText(realEstatereturnsString);
+
+                if (realEstateReturnsValue >= 0) {
+                    textViewrealestatereturns.setTextColor(Color.GREEN);
+                } else {
+                    textViewrealestatereturns.setTextColor(Color.RED);
+                }
+            }
+            else{
+                Toast.makeText(this, "Failed to get real estate data", Toast.LENGTH_SHORT).show();
             }
 
         } else {
