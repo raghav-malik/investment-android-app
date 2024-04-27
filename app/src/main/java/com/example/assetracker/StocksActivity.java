@@ -1,9 +1,11 @@
 package com.example.assetracker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,16 +19,9 @@ import java.util.Locale;
 
 public class StocksActivity extends AppCompatActivity {
 
-    TextView textPortfolio;
-    TextView investedAmt;
-    TextView textViewreturnsEquity;
-    TextView textViewEquityInvested;
-    TextView textViewdebtreturns;
-    TextView textViewdebtprice;
-    TextView textViewgoldreturns;
-    TextView textViewgoldprice;
-    TextView textViewrealestatereturns;
-    TextView textViewrealestateprice;
+    TextView textPortfolio, investedAmt, textViewreturnsEquity, textViewEquityInvested
+    , textViewdebtreturns, textViewdebtprice, textViewgoldreturns, textViewgoldprice
+    , textViewrealestatereturns, textViewrealestateprice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +40,14 @@ public class StocksActivity extends AppCompatActivity {
         textViewrealestatereturns=findViewById(R.id.textViewrealestatereturns);
         textViewrealestateprice=findViewById(R.id.textViewrealestateprice);
         fetchDataForPortfolio();
+
+
+        ButtonHandlerHome buttonhandlerhome  = new ButtonHandlerHome(this);
+        findViewById(R.id.btnEquity).setOnClickListener(buttonhandlerhome);
+        findViewById(R.id.btndebt).setOnClickListener(buttonhandlerhome);
+        findViewById(R.id.btnrealestate).setOnClickListener(buttonhandlerhome);
+        findViewById(R.id.btngold).setOnClickListener(buttonhandlerhome);
+
     }
 
     private void fetchDataForPortfolio() {
@@ -183,4 +186,38 @@ public class StocksActivity extends AppCompatActivity {
         }
     }
 
+}
+
+class ButtonHandlerHome implements View.OnClickListener
+{
+    private Context context;
+    ButtonHandlerHome(Context context)
+    {
+        this.context = context;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        Intent intent = null;
+        if (id == R.id.btnEquity)
+        {
+            intent = new Intent(this.context, EquityActivity.class);
+        }
+        else if (id == R.id.btndebt)
+        {
+            intent = new Intent(this.context, DebtActivity.class);
+        }
+        else if (id == R.id.btnrealestate)
+        {
+            intent = new Intent(this.context, DebtActivity.class);
+        }
+        else if (id == R.id.btngold)
+        {
+            intent = new Intent(this.context, DebtActivity.class);
+        }
+
+        context.startActivity(intent);
+
+    }
 }
