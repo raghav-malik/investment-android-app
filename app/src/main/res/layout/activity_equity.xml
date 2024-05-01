@@ -210,7 +210,7 @@
         app:layout_constraintTop_toBottomOf="@+id/stocksbtn" />
 
     <TextView
-        android:id="@+id/textViewgoldeftpercentage"
+        android:id="@+id/textViewStockspercentage"
         android:layout_width="83dp"
         android:layout_height="27dp"
         android:layout_marginStart="32dp"
@@ -222,7 +222,7 @@
         app:layout_constraintVertical_bias="0.487" />
 
     <TextView
-        android:id="@+id/textViewdigitalgoldprice"
+        android:id="@+id/textViewStockprice"
         android:layout_width="86dp"
         android:layout_height="26dp"
         android:layout_marginStart="32dp"
@@ -234,7 +234,7 @@
         app:layout_constraintVertical_bias="0.891" />
 
     <TextView
-        android:id="@+id/textViewdigitalgoldpercentage"
+        android:id="@+id/textViewMFpercentage"
         android:layout_width="92dp"
         android:layout_height="27dp"
         android:layout_marginStart="36dp"

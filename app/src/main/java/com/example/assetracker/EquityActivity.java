@@ -27,15 +27,15 @@ public class EquityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_equity);
 
-        textViewstockspercentage=findViewById(R.id.textViewstockspercentage);
-        textViewstocksprice=findViewById(R.id.textViewstocksprice);
-        textViewmutualfundspercentage=findViewById(R.id.textViewmutualfundspercentage);
+        textViewstockspercentage=findViewById(R.id.textViewStockspercentage);
+        textViewstocksprice=findViewById(R.id.textViewStockprice);
+        textViewmutualfundspercentage=findViewById(R.id.textViewMFpercentage);
         textViewmutualfundsprice=findViewById(R.id.textViewmutualfundsprice);
-        textViewinvestedquity=findViewById(R.id.textViewinvestedquity);
+        textViewinvestedquity=findViewById(R.id.textViewinvestedquity_3);
 
-        buttoncurrentvalue=findViewById(R.id.buttoncurrentvalue);
-        buttonpercentagereturns=findViewById(R.id.buttonpercentagereturns);
-        buttoncurrentvalue_1=findViewById(R.id.buttoncurrentvalue_1);
+        buttoncurrentvalue=findViewById(R.id.buttoncurrentvalue_3);
+        buttonpercentagereturns=findViewById(R.id.buttonpercentagereturns_1);
+        buttoncurrentvalue_1=findViewById(R.id.buttonreturnvaluequity);
 
         fetchDataForPortfolio();
 
