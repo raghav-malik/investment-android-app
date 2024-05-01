@@ -1,13 +1,14 @@
 package com.example.assetracker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.assetracker.API.api;
 import com.google.gson.JsonElement;
@@ -17,14 +18,20 @@ import java.util.Locale;
 
 public class DebtActivity extends AppCompatActivity {
 
-    TextView textViewreturnsMF,textViewInvestedMF;
+    TextView textViewreturnsMF,textViewInvestedMF, textViewinvestedquity_debt;
+    Button buttonpercentagereturns_debt,buttoncurrentvalue_debt,buttoncurrentvalue_1_debt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_debt);
 
+        textViewinvestedquity_debt = findViewById(R.id.textViewinvestedquity_debt);
         textViewreturnsMF=findViewById(R.id.textViewreturnsMF);
         textViewInvestedMF=findViewById(R.id.textViewInvestedMF);
+        buttoncurrentvalue_1_debt = findViewById(R.id.buttoncurrentvalue_1_debt);
+        buttoncurrentvalue_debt = findViewById(R.id.buttoncurrentvalue_debt);
+        buttonpercentagereturns_debt = findViewById(R.id.buttonpercentagereturns_debt);
+
 
         fetchDataForPortfolio();
     }
@@ -42,6 +49,26 @@ public class DebtActivity extends AppCompatActivity {
 
         JsonObject responseData = response.getAsJsonObject();
         if (responseData != null) {
+            String inv_equity = responseData.get("invested").getAsString();
+            double equity_inv = Double.parseDouble(inv_equity);
+            String equity_invested = String.format(Locale.US, "%.2f", equity_inv);
+            textViewinvestedquity_debt.setText(equity_invested);
+
+            String current_val = responseData.get("current_value").getAsString();
+            double current_value = Double.parseDouble(current_val);
+            String curr = String.format(Locale.US, "%.2f", current_value);
+            buttoncurrentvalue_debt.setText(curr);
+
+            String returns_val = responseData.get("returns_value").getAsString();
+            double returns_value = Double.parseDouble(returns_val);
+            String returns = String.format(Locale.US, "%.2f", returns_value);
+            buttoncurrentvalue_1_debt.setText(returns);
+
+            String returns_per = responseData.get("returns_percentage").getAsString();
+            double returns_percent = Double.parseDouble(returns_per);
+            String percent = String.format(Locale.US, "%.2f", returns_percent);
+            buttonpercentagereturns_debt.setText(percent);
+
 
             JsonObject MF = responseData.getAsJsonObject("mutual_fund");
             if(MF != null) {

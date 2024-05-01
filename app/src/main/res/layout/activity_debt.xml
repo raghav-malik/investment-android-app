@@ -5,25 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DebtActivity">
-
     <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/linearLayout6_debt"
+        android:layout_width="410dp"
+        android:layout_height="281dp"
+        android:background="@drawable/top_background"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="-60dp"
-        tools:layout_editor_absoluteY="75dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="292dp"
-            android:background="@drawable/top_background">
+            android:layout_height="283dp">
 
             <TextView
-                android:id="@+id/textassettrackr1"
+                android:id="@+id/textassettrackr2_debt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="24dp"
                 android:shadowColor="@color/black"
                 android:shadowDx="3"
                 android:shadowDy="3"
@@ -35,37 +35,210 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.098" />
+                app:layout_constraintVertical_bias="0.132" />
 
             <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="115dp"
-                android:layout_height="116dp"
+                android:id="@+id/imageView10_debt"
+                android:layout_width="116dp"
+                android:layout_height="107dp"
+                android:layout_marginTop="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.976"
+                app:layout_constraintHorizontal_bias="0.993"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/assettrackr" />
 
             <TextView
-                android:id="@+id/textdebtassets"
+                android:id="@+id/equityassetstext_debt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Debt Assets"
+                android:text="Equity Assets"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.335" />
+                app:layout_constraintVertical_bias="0.363" />
+
+            <TextView
+                android:id="@+id/textViewinvestedquity_debt"
+                android:layout_width="160dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:text="Rs 15000"
+                android:textColor="#ffffff"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.565" />
+
+            <TextView
+                android:id="@+id/textViewinvestedeuqity_1_debt"
+                android:layout_width="121dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="16dp"
+                android:text="Invested"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.409" />
+
+            <Button
+                android:id="@+id/buttonpercentagereturns_debt"
+                android:layout_width="168dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="132dp"
+                android:background="@drawable/buttonforportfolio"
+                android:drawableLeft="@drawable/baseline_attach_money_24"
+                android:text="     2.12%"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.904"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewpercentagereturns_debt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="% RETURNS"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.425" />
+
+            <Button
+                android:id="@+id/buttoncurrentvalue_debt"
+                android:layout_width="170dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/buttonforportfolio"
+                android:drawableLeft="@drawable/baseline_account_balance_wallet_24"
+                android:text="   Rs 15,319"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.929" />
+
+            <TextView
+                android:id="@+id/textViewcurrentvalue_debt"
+                android:layout_width="141dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="16dp"
+                android:text="CURRENT VALUE"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.725" />
+
+            <Button
+                android:id="@+id/buttoncurrentvalue_1_debt"
+                android:layout_width="167dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="212dp"
+                android:background="@drawable/buttonforportfolio"
+                android:drawableLeft="@drawable/baseline_align_vertical_bottom_24"
+                android:text="     Rs 319"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.905"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewreturns_debt"
+                android:layout_width="79dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="32dp"
+                android:text="RETURNS"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.727" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearLayout7"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical"-->
+<!--        tools:layout_editor_absoluteX="-60dp"-->
+<!--        tools:layout_editor_absoluteY="75dp">-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="292dp"-->
+<!--            android:background="@drawable/top_background">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textassettrackr1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:shadowColor="@color/black"-->
+<!--                android:shadowDx="3"-->
+<!--                android:shadowDy="3"-->
+<!--                android:shadowRadius="3"-->
+<!--                android:text="AssetTrackr"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.098" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView9"-->
+<!--                android:layout_width="115dp"-->
+<!--                android:layout_height="116dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.976"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:srcCompat="@drawable/assettrackr" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textdebtassets"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Debt Assets"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.498"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.335" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+<!--    </LinearLayout>-->
 
     <Button
         android:id="@+id/Mutualfundsbtn"

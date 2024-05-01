@@ -1,7 +1,5 @@
 package com.example.assetracker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.assetracker.API.api;
 import com.google.gson.JsonElement;
@@ -77,7 +77,7 @@ public class EquityActivity extends AppCompatActivity {
             String percent = String.format(Locale.US, "%.2f", returns_percent);
             buttonpercentagereturns.setText(percent);
 
-            JsonObject stocks = responseData.getAsJsonObject("mutual_fund");
+            JsonObject stocks = responseData.getAsJsonObject("stock");
             if(stocks != null) {
                 String stocksInvestedStr = stocks.get("invested").getAsString();
                 double stocksInvested = Double.parseDouble(stocksInvestedStr);
