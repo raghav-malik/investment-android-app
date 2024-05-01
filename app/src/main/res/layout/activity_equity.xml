@@ -65,7 +65,7 @@
                 app:layout_constraintVertical_bias="0.363" />
 
             <TextView
-                android:id="@+id/textViewinvestedquity"
+                android:id="@+id/textViewinvestedquity_3"
                 android:layout_width="160dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="16dp"
@@ -91,7 +91,7 @@
                 app:layout_constraintVertical_bias="0.409" />
 
             <Button
-                android:id="@+id/buttonpercentagereturns"
+                android:id="@+id/buttonpercentagereturns_1"
                 android:layout_width="168dp"
                 android:layout_height="53dp"
                 android:layout_marginTop="132dp"
@@ -107,7 +107,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewpercentagereturns"
+                android:id="@+id/textViewpercentagereturns_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
@@ -120,7 +120,7 @@
                 app:layout_constraintVertical_bias="0.425" />
 
             <Button
-                android:id="@+id/buttoncurrentvalue"
+                android:id="@+id/buttoncurrentvalue_3"
                 android:layout_width="170dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="16dp"
@@ -136,7 +136,7 @@
                 app:layout_constraintVertical_bias="0.929" />
 
             <TextView
-                android:id="@+id/textViewcurrentvalue"
+                android:id="@+id/textViewcurrentvalue_1"
                 android:layout_width="141dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="16dp"
@@ -149,7 +149,7 @@
                 app:layout_constraintVertical_bias="0.725" />
 
             <Button
-                android:id="@+id/buttoncurrentvalue_1"
+                android:id="@+id/buttonreturnvaluequity"
                 android:layout_width="167dp"
                 android:layout_height="52dp"
                 android:layout_marginTop="212dp"
@@ -165,7 +165,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewreturns"
+                android:id="@+id/textViewreturns_1"
                 android:layout_width="79dp"
                 android:layout_height="22dp"
                 android:layout_marginEnd="32dp"
@@ -210,7 +210,7 @@
         app:layout_constraintTop_toBottomOf="@+id/stocksbtn" />
 
     <TextView
-        android:id="@+id/textViewstockspercentage"
+        android:id="@+id/textViewgoldeftpercentage"
         android:layout_width="83dp"
         android:layout_height="27dp"
         android:layout_marginStart="32dp"
@@ -222,7 +222,7 @@
         app:layout_constraintVertical_bias="0.487" />
 
     <TextView
-        android:id="@+id/textViewstocksprice"
+        android:id="@+id/textViewdigitalgoldprice"
         android:layout_width="86dp"
         android:layout_height="26dp"
         android:layout_marginStart="32dp"
@@ -234,7 +234,7 @@
         app:layout_constraintVertical_bias="0.891" />
 
     <TextView
-        android:id="@+id/textViewmutualfundspercentage"
+        android:id="@+id/textViewdigitalgoldpercentage"
         android:layout_width="92dp"
         android:layout_height="27dp"
         android:layout_marginStart="32dp"
