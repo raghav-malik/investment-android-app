@@ -154,11 +154,11 @@
         android:id="@+id/textViewEquityInvested"
         android:layout_width="75dp"
         android:layout_height="24dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         android:text="Rs. 15000"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toEndOf="@+id/btnEquity"
         app:layout_constraintTop_toTopOf="@+id/btnEquity" />
 
