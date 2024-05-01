@@ -62,13 +62,13 @@ public class StocksActivity extends AppCompatActivity {
         JsonElement response = api.callGenericApi(requestData, "portfolio_information", "get", null, null, null);
 
         JsonObject responseData = response.getAsJsonObject();
-        String InvestedStr = responseData.get("invested").getAsString();
-        double totalInvested = Double.parseDouble(InvestedStr);
-        String totalInvestedAmountString = String.format(Locale.US, "%.2f", totalInvested);
-        investedAmt.setText(totalInvestedAmountString);
+
 
         if (responseData != null) {
-
+            String InvestedStr = responseData.get("invested").getAsString();
+            double totalInvested = Double.parseDouble(InvestedStr);
+            String totalInvestedAmountString = String.format(Locale.US, "%.2f", totalInvested);
+            investedAmt.setText(totalInvestedAmountString);
             // Equity
             JsonObject equity = responseData.getAsJsonObject("equity");
             if(equity != null) {
@@ -210,11 +210,11 @@ class ButtonHandlerHome implements View.OnClickListener
         }
         else if (id == R.id.btnrealestate)
         {
-            intent = new Intent(this.context, DebtActivity.class);
+            intent = new Intent(this.context, RealEstateActivity.class);
         }
         else if (id == R.id.btngold)
         {
-            intent = new Intent(this.context, DebtActivity.class);
+            intent = new Intent(this.context, GoldActivity.class);
         }
 
         context.startActivity(intent);
