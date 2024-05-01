@@ -62,13 +62,13 @@ public class StocksActivity extends AppCompatActivity {
         JsonElement response = api.callGenericApi(requestData, "portfolio_information", "get", null, null, null);
 
         JsonObject responseData = response.getAsJsonObject();
-        String InvestedStr = responseData.get("invested").getAsString();
-        double totalInvested = Double.parseDouble(InvestedStr);
-        String totalInvestedAmountString = String.format(Locale.US, "%.2f", totalInvested);
-        investedAmt.setText(totalInvestedAmountString);
+
 
         if (responseData != null) {
-
+            String InvestedStr = responseData.get("invested").getAsString();
+            double totalInvested = Double.parseDouble(InvestedStr);
+            String totalInvestedAmountString = String.format(Locale.US, "%.2f", totalInvested);
+            investedAmt.setText(totalInvestedAmountString);
             // Equity
             JsonObject equity = responseData.getAsJsonObject("equity");
             if(equity != null) {
