@@ -210,11 +210,11 @@ class ButtonHandlerHome implements View.OnClickListener
         }
         else if (id == R.id.btnrealestate)
         {
-            intent = new Intent(this.context, DebtActivity.class);
+            intent = new Intent(this.context, RealEstateActivity.class);
         }
         else if (id == R.id.btngold)
         {
-            intent = new Intent(this.context, DebtActivity.class);
+            intent = new Intent(this.context, GoldActivity.class);
         }
 
         context.startActivity(intent);
