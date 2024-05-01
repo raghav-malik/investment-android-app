@@ -43,16 +43,15 @@ public class DebtActivity extends AppCompatActivity {
         JsonObject responseData = response.getAsJsonObject();
         if (responseData != null) {
 
-            // Equity
-            JsonObject equity = responseData.getAsJsonObject("mutual_fund");
-            if(equity != null) {
-                String MFInvestedStr = equity.get("invested").getAsString();
+            JsonObject MF = responseData.getAsJsonObject("mutual_fund");
+            if(MF != null) {
+                String MFInvestedStr = MF.get("invested").getAsString();
                 double MFInvested = Double.parseDouble(MFInvestedStr);
 
-                String MFReturnsValueStr = equity.get("returns_value").getAsString();
+                String MFReturnsValueStr = MF.get("returns_value").getAsString();
                 double MFReturnsValue = Double.parseDouble(MFReturnsValueStr);
 
-                String MFReturnsPercentageStr = equity.get("returns_percentage").getAsString();
+                String MFReturnsPercentageStr = MF.get("returns_percentage").getAsString();
                 double MFReturnsPercentage = Double.parseDouble(MFReturnsPercentageStr);
 
                 String MFInvestedAmountString = String.format(Locale.US, "%.2f", MFInvested);
