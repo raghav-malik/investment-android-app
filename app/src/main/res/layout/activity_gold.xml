@@ -77,7 +77,7 @@
                 app:layout_constraintVertical_bias="0.409" />
 
             <TextView
-                android:id="@+id/textViewinvestedquity_3"
+                android:id="@+id/textViewinvestedGold_3"
                 android:layout_width="160dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="16dp"
@@ -90,7 +90,7 @@
                 app:layout_constraintVertical_bias="0.565" />
 
             <Button
-                android:id="@+id/buttonpercentagereturns_1"
+                android:id="@+id/buttonpercentagereturnsGold_1"
                 android:layout_width="168dp"
                 android:layout_height="53dp"
                 android:layout_marginTop="132dp"
@@ -119,7 +119,7 @@
                 app:layout_constraintVertical_bias="0.425" />
 
             <Button
-                android:id="@+id/buttoncurrentvalue_3"
+                android:id="@+id/buttoncurrentvalueGold_3"
                 android:layout_width="170dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="16dp"
@@ -148,7 +148,7 @@
                 app:layout_constraintVertical_bias="0.725" />
 
             <Button
-                android:id="@+id/buttoncurrentvalue_2"
+                android:id="@+id/buttonreturnsvalueGold_2"
                 android:layout_width="167dp"
                 android:layout_height="52dp"
                 android:layout_marginTop="212dp"
@@ -197,33 +197,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
 
-    <Button
-        android:id="@+id/btngoldmutualfunds"
-        android:layout_width="251dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/btnforpurposes"
-        android:paddingLeft="15dp"
-        android:text="Gold Mutual Fund's"
-        android:textAlignment="viewStart"
-        app:layout_constraintEnd_toEndOf="@+id/btngoldeft"
-        app:layout_constraintStart_toStartOf="@+id/btngoldeft"
-        app:layout_constraintTop_toBottomOf="@+id/btngoldeft" />
-
     <TextView
-        android:id="@+id/textViewgoldmutualfundspercentage"
-        android:layout_width="92dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="32dp"
-        android:text="+310  (6.20%)"
-        android:textColor="#23B371"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btngoldmutualfunds"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
-
-    <TextView
-        android:id="@+id/textViewgoldeftpercentage"
+        android:id="@+id/textViewgoldETFpercentage"
         android:layout_width="95dp"
         android:layout_height="36dp"
         android:layout_marginStart="32dp"
@@ -235,43 +210,7 @@
         app:layout_constraintVertical_bias="0.483" />
 
     <TextView
-        android:id="@+id/textViewdgoldmutualfundsprice"
-        android:layout_width="86dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="40dp"
-        android:text="(Rs 5000)"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/btngoldmutualfunds"
-        app:layout_constraintStart_toEndOf="@+id/btngoldmutualfunds"
-        app:layout_constraintTop_toTopOf="@+id/btngoldmutualfunds"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/textViewdigitalgoldpercentage"
-        android:layout_width="92dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="32dp"
-        android:text="+179  (3.58%)"
-        android:textColor="#23B371"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btndigitalgold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
-
-    <TextView
-        android:id="@+id/textViewdigitalgoldprice"
-        android:layout_width="86dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="40dp"
-        android:text="(Rs 5000)"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/btndigitalgold"
-        app:layout_constraintStart_toEndOf="@+id/btndigitalgold"
-        app:layout_constraintTop_toTopOf="@+id/btndigitalgold"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/textViewgoldeftprice"
+        android:id="@+id/textViewgoldETFprice"
         android:layout_width="86dp"
         android:layout_height="26dp"
         android:layout_marginStart="32dp"
@@ -281,18 +220,5 @@
         app:layout_constraintStart_toEndOf="@+id/btngoldeft"
         app:layout_constraintTop_toTopOf="@+id/btngoldeft"
         app:layout_constraintVertical_bias="0.717" />
-
-    <Button
-        android:id="@+id/btndigitalgold"
-        android:layout_width="251dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/btnforpurposes"
-        android:paddingLeft="15dp"
-        android:text="Digital Gold"
-        android:textAlignment="viewStart"
-        app:layout_constraintEnd_toEndOf="@+id/btngoldmutualfunds"
-        app:layout_constraintStart_toStartOf="@+id/btngoldmutualfunds"
-        app:layout_constraintTop_toBottomOf="@+id/btngoldmutualfunds" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
