@@ -87,6 +87,90 @@
     </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="328dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewreturnsEquity"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:text="+321 (2.19%)"
+            android:textAlignment="center"
+            android:textColor="#27FF00" />
+
+        <TextView
+            android:id="@+id/textViewEquityInvested"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:text="Rs. 15000"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="424dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewdebtreturns"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:text="+19 (0.20%)"
+            android:textAlignment="center"
+            android:textColor="#27FF00" />
+
+
+        <TextView
+            android:id="@+id/textViewdebtprice"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:text="Rs. 8000"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="520dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewgoldreturns"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:text="+387 (2.58%)"
+            android:textAlignment="center"
+            android:textColor="#27FF00" />
+
+
+        <TextView
+            android:id="@+id/textViewgoldprice"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:text="Rs. 15000"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/btnEquity"
         android:layout_width="251dp"
@@ -121,21 +205,6 @@
         app:layout_constraintTop_toBottomOf="@+id/btnEquity" />
 
     <Button
-        android:id="@+id/btnrealestate"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/btnforpurposes"
-        android:drawableStart="@drawable/real_estate"
-        android:drawablePadding="10dp"
-        android:paddingStart="10dp"
-        android:text="Real state"
-        android:textAlignment="viewStart"
-        app:layout_constraintEnd_toEndOf="@+id/btndebt"
-        app:layout_constraintStart_toStartOf="@+id/btndebt"
-        app:layout_constraintTop_toBottomOf="@+id/btndebt" />
-
-    <Button
         android:id="@+id/btngold"
         android:layout_width="0dp"
         android:layout_height="72dp"
@@ -146,108 +215,8 @@
         android:paddingStart="10dp"
         android:text="Gold"
         android:textAlignment="viewStart"
-        app:layout_constraintEnd_toEndOf="@+id/btnrealestate"
-        app:layout_constraintStart_toStartOf="@+id/btnrealestate"
-        app:layout_constraintTop_toBottomOf="@+id/btnrealestate" />
-
-    <TextView
-        android:id="@+id/textViewEquityInvested"
-        android:layout_width="75dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="44dp"
-        android:text="Rs. 15000"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toEndOf="@+id/btnEquity"
-        app:layout_constraintTop_toTopOf="@+id/btnEquity" />
-
-    <TextView
-        android:id="@+id/textViewdebtreturns"
-        android:layout_width="81dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="20dp"
-        android:text="+19 (0.20%)"
-        android:textAlignment="center"
-        android:textColor="#27FF00"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btndebt"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.628" />
-
-    <TextView
-        android:id="@+id/textViewdebtprice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Rs. 8000"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
-        app:layout_constraintStart_toEndOf="@+id/btndebt"
-        app:layout_constraintTop_toTopOf="@+id/btndebt" />
-
-    <TextView
-        android:id="@+id/textViewrealestatereturns"
-        android:layout_width="96dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="32dp"
-        android:text="-261 (-2.10%)"
-        android:textAlignment="center"
-        android:textColor="#27FF00"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.758" />
-
-    <TextView
-        android:id="@+id/textViewrealestateprice"
-        android:layout_width="64dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="32dp"
-        android:text="Rs. 12000"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.412"
-        app:layout_constraintStart_toEndOf="@+id/btnrealestate"
-        app:layout_constraintTop_toTopOf="@+id/btnrealestate" />
-
-    <TextView
-        android:id="@+id/textViewgoldreturns"
-        android:layout_width="85dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="36dp"
-        android:text="+387 (2.58%)"
-        android:textColor="#27FF00"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.902" />
-
-    <TextView
-        android:id="@+id/textViewgoldprice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Rs. 15000"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
-        app:layout_constraintStart_toEndOf="@+id/btngold"
-        app:layout_constraintTop_toTopOf="@+id/btngold" />
-
-    <TextView
-        android:id="@+id/textViewreturnsEquity"
-        android:layout_width="87dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="336dp"
-        android:text="+321 (2.19%)"
-        android:textAlignment="center"
-        android:textColor="#27FF00"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
-        app:layout_constraintStart_toEndOf="@+id/btnEquity"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="@+id/btndebt"
+        app:layout_constraintStart_toStartOf="@+id/btndebt"
+        app:layout_constraintTop_toBottomOf="@+id/btndebt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
