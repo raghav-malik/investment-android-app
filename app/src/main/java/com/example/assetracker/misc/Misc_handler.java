@@ -76,6 +76,12 @@ public class Misc_handler {
 
     }
 
+    public static String to_Title(String string)
+    {
+        string = string.replace("_", " ");
+        return Character.toUpperCase(string.charAt(0)) + string.substring(1);
+    }
+
 }
 
 

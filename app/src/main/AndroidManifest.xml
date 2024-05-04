@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Assetracker"
         tools:targetApi="31">
         <activity
+            android:name=".AllAssetsBuy"
+            android:exported="false" />
+        <activity
             android:name=".StocksProcessActivity"
             android:exported="false" />
         <activity

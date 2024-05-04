@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.assetracker.API.api;
+import com.example.assetracker.misc.Misc_handler;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -22,8 +23,8 @@ import java.util.Locale;
 public class StocksProcessActivity extends AppCompatActivity  {
 
     String id = null;
-    TextView stockbtnactivities, quantitytextview, salespricetextview;
-    Button buy, sell;
+    TextView stockbtnactivities, quantitytextview, salespricetextview, textViewinvestedquity_3, equityassetstext, stocknametext;
+    Button buy, sell, buttonpercentagereturns_1, buttoncurrentvalue_3, buttonreturnvaluequity;
     EditText operation_quantity; // Is temporary
     ButtonHandlerStocksProcess btnhandler;
     @Override
@@ -34,6 +35,12 @@ public class StocksProcessActivity extends AppCompatActivity  {
         stockbtnactivities = (TextView) findViewById(R.id.stockbtnactivities);
         quantitytextview = (TextView) findViewById(R.id.quantitytextview);
         salespricetextview = (TextView) findViewById(R.id.salespricetextview);
+        textViewinvestedquity_3 = (TextView) findViewById(R.id.textViewinvestedquity_3);
+        buttonpercentagereturns_1 = (Button) findViewById(R.id.buttonpercentagereturns_1);
+        buttoncurrentvalue_3 = (Button) findViewById(R.id.buttoncurrentvalue_3);
+        buttonreturnvaluequity = (Button) findViewById(R.id.buttonreturnvaluequity);
+        equityassetstext = (TextView) findViewById(R.id.equityassetstext);
+        stocknametext = (TextView) findViewById(R.id.stocknametext);
 
 
         buy = (Button) findViewById(R.id.buystocksbtn);
@@ -44,7 +51,6 @@ public class StocksProcessActivity extends AppCompatActivity  {
         if (intent != null && intent.hasExtra("id")) {
             id = intent.getStringExtra("id");
         }
-//        btnhandler = new ButtonHandlerStocksProcess(this, buy, sell, operation_quantity, id);
         fetchDataForPortfolio();
     }
     private void fetchDataForPortfolio() {
@@ -65,11 +71,17 @@ public class StocksProcessActivity extends AppCompatActivity  {
             Double current_price = Double.parseDouble(responseData.get("current_price").toString().replace("\"", ""));
             String string_current_price = String.format(Locale.US, "%.2f", current_price);
             salespricetextview.setText(string_current_price);
+            equityassetstext.setText(Misc_handler.to_Title(responseData.get("holding_type").toString().replace("\"", "")) + " Information");
+            stocknametext.setText("Current " + Misc_handler.to_Title(responseData.get("holding_type").toString().replace("\"", "")) + " Name");
 
             JsonObject user_information = responseData.get("user_information").getAsJsonObject();
 
-            // set Top Header information invested, returns and more everything is provided in user_information
+            textViewinvestedquity_3.setText(user_information.get("invested").toString());
+            buttonpercentagereturns_1.setText(user_information.get("returns_percentage").toString());
+            buttoncurrentvalue_3.setText(user_information.get("current_value").toString());
+            buttonreturnvaluequity.setText(user_information.get("returns_value").toString());
             quantitytextview.setText(user_information.get("quantity").toString());
+
             btnhandler = new ButtonHandlerStocksProcess(this, buy, sell, operation_quantity, id, requestData, this);
 
             buy.setOnClickListener(btnhandler);
@@ -79,10 +91,6 @@ public class StocksProcessActivity extends AppCompatActivity  {
             Toast.makeText(this, "Response data is empty", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
-
 
 }
 
@@ -164,10 +172,6 @@ class ButtonHandlerStocksProcess implements View.OnClickListener
         catch (ArithmeticException e)
         {
             Toast.makeText(context, "Quantity must be bigger than 0", Toast.LENGTH_SHORT).show();
-        }
-        catch (RuntimeException e)
-        {
-            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         catch (Exception e)
         {
