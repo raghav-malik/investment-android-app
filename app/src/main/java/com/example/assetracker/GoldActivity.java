@@ -1,7 +1,5 @@
 package com.example.assetracker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,15 +11,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.assetracker.API.api;
+import com.example.assetracker.misc.Refresher;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.util.Locale;
 
-public class GoldActivity extends AppCompatActivity {
+public class GoldActivity extends Refresher {
 
     TextView textViewinvestedquity_gold,textViewgoldetfpercentage,textViewgoldetfprice;
-    Button buttonpercentagereturns_1,buttoncurrentvalue_2,buttoncurrentvalue_3;
+    Button buttonpercentagereturns_1,buttoncurrentvalue_2,buttoncurrentvalue_3, btngoldeft;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +33,22 @@ public class GoldActivity extends AppCompatActivity {
         buttonpercentagereturns_1=findViewById(R.id.buttonpercentagereturnsGold_1);
         buttoncurrentvalue_2=findViewById(R.id.buttonreturnsvalueGold_2);
         buttoncurrentvalue_3=findViewById(R.id.buttoncurrentvalueGold_3);
+        btngoldeft = (Button) findViewById(R.id.btngoldeft);
+
+        btngoldeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(GoldActivity.this, StocksActivity2.class);
+                intent2.putExtra("asset_type", "gold");
+                intent2.putExtra("holding_type", "etf");
+                startActivity(intent2);
+            }
+        });
+
 
         fetchDataForPortfolio();
 
 
-        ButtonHandlerGold buttonhandlerhome  = new ButtonHandlerGold(this);
-        findViewById(R.id.btngoldeft).setOnClickListener(buttonhandlerhome);
     }
 
     private void fetchDataForPortfolio() {
@@ -105,27 +114,5 @@ public class GoldActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Failed to fetch data for gold assets!", Toast.LENGTH_SHORT).show();
         }
-    }
-}
-
-class ButtonHandlerGold implements View.OnClickListener
-{
-    private Context context;
-    ButtonHandlerGold(Context context)
-    {
-        this.context = context;
-    }
-
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        Intent intent = null;
-//        if (id == R.id.btngoldeft)
-//        {
-//            intent = new Intent(this.context, ETFActivity.class);
-//        }
-
-        context.startActivity(intent);
-
     }
 }

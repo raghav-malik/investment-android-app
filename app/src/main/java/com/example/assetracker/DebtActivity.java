@@ -1,25 +1,27 @@
 package com.example.assetracker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.assetracker.API.api;
+import com.example.assetracker.misc.Refresher;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.util.Locale;
 
-public class DebtActivity extends AppCompatActivity {
+public class DebtActivity extends Refresher {
 
     TextView textViewreturnsMF,textViewInvestedMF, textViewinvestedquity_debt;
-    Button buttonpercentagereturns_debt,buttoncurrentvalue_debt,buttoncurrentvalue_1_debt;
+    Button buttonpercentagereturns_debt,buttoncurrentvalue_debt,buttoncurrentvalue_1_debt, Mutualfundsbtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,16 @@ public class DebtActivity extends AppCompatActivity {
         buttoncurrentvalue_1_debt = findViewById(R.id.buttoncurrentvalue_1_debt);
         buttoncurrentvalue_debt = findViewById(R.id.buttoncurrentvalue_debt);
         buttonpercentagereturns_debt = findViewById(R.id.buttonpercentagereturns_debt);
-
+        Mutualfundsbtn = (Button) findViewById(R.id.Mutualfundsbtn);
+        Mutualfundsbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(DebtActivity.this, StocksActivity2.class);
+                intent1.putExtra("asset_type", "debt");
+                intent1.putExtra("holding_type", "mutual_fund");
+                startActivity(intent1);
+            }
+        });
 
         fetchDataForPortfolio();
     }

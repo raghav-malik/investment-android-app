@@ -188,7 +188,7 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/btnforpurposes"
         android:paddingLeft="15dp"
-        android:text="Gold EFT's"
+        android:text="Gold ETF's"
         android:textAlignment="viewStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

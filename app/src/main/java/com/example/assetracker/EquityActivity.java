@@ -10,15 +10,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.assetracker.API.api;
+import com.example.assetracker.misc.Refresher;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.util.Locale;
 
-public class EquityActivity extends AppCompatActivity {
+public class EquityActivity extends Refresher {
 
     TextView textViewstockspercentage,textViewstocksprice,textViewmutualfundspercentage,textViewmutualfundsprice,textViewinvestedquity;
     Button buttoncurrentvalue,buttonpercentagereturns,buttoncurrentvalue_1;

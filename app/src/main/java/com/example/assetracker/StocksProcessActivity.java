@@ -51,7 +51,6 @@ public class StocksProcessActivity extends AppCompatActivity  {
         if (intent != null && intent.hasExtra("id")) {
             id = intent.getStringExtra("id");
         }
-        System.out.println(id);
         fetchDataForPortfolio();
     }
     private void fetchDataForPortfolio() {

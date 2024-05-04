@@ -12,20 +12,18 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.assetracker.API.api;
 import com.example.assetracker.misc.Misc_handler;
+import com.example.assetracker.misc.Refresher;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-public class StocksActivity2 extends AppCompatActivity {
+public class StocksActivity2 extends Refresher {
     LinearLayout stocks_linearlayout_dynamic;
     TextView textstocks, textyourstocks;
     Button btnbuystocks;
     String asset_type, holding_type, query;
-    private boolean isResumedFromBackStack = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
