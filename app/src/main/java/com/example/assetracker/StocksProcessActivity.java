@@ -39,7 +39,7 @@ public class StocksProcessActivity extends AppCompatActivity  {
         buttonpercentagereturns_1 = (Button) findViewById(R.id.buttonpercentagereturns_1);
         buttoncurrentvalue_3 = (Button) findViewById(R.id.buttoncurrentvalue_3);
         buttonreturnvaluequity = (Button) findViewById(R.id.buttonreturnvaluequity);
-        equityassetstext = (TextView) findViewById(R.id.equityassetstext);
+        equityassetstext = (TextView) findViewById(R.id.equityassetstext_process);
         stocknametext = (TextView) findViewById(R.id.stocknametext);
 
 
@@ -51,6 +51,7 @@ public class StocksProcessActivity extends AppCompatActivity  {
         if (intent != null && intent.hasExtra("id")) {
             id = intent.getStringExtra("id");
         }
+        System.out.println(id);
         fetchDataForPortfolio();
     }
     private void fetchDataForPortfolio() {

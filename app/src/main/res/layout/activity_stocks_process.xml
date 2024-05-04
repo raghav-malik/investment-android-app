@@ -10,7 +10,7 @@
         android:id="@+id/sellstocksbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btnforpurchases"
+        android:background="@drawable/btnforpurposes"
         android:text="SELL"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,12 +18,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.906" />
-
     <Button
         android:id="@+id/buystocksbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btnforpurchases"
+        android:background="@drawable/btnforpurposes"
         android:text="BUY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,6 +65,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
+        android:minHeight="48dp"
         android:text="Quantity"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -231,7 +231,7 @@
                 app:layout_constraintVertical_bias="0.725" />
 
             <TextView
-                android:id="@+id/equityassetstext"
+                android:id="@+id/equityassetstext_process"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Stocks Activities"
@@ -283,8 +283,9 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="0"
         android:layout_marginBottom="136dp"
+        android:minHeight="48dp"
+        android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

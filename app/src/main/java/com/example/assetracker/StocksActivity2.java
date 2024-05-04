@@ -9,18 +9,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.assetracker.API.api;
+import com.example.assetracker.misc.Misc_handler;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 public class StocksActivity2 extends AppCompatActivity {
     LinearLayout stocks_linearlayout_dynamic;
+    TextView textstocks, textyourstocks;
     Button btnbuystocks;
+    String asset_type, holding_type, query;
     private boolean isResumedFromBackStack = false;
 
     @Override
@@ -31,13 +35,27 @@ public class StocksActivity2 extends AppCompatActivity {
         stocks_linearlayout_dynamic = (LinearLayout) findViewById(R.id.stocks_linearlayout_dynamic);
         stocks_linearlayout_dynamic.removeAllViews();
         btnbuystocks = (Button) findViewById(R.id.btnbuystocks);
+        textstocks = (TextView) findViewById(R.id.textstocks);
+        textyourstocks = (TextView) findViewById(R.id.textyourstocks);
+
+        Intent intent = getIntent();
+        if (intent != null)
+        {
+            asset_type = intent.getStringExtra("asset_type");
+            holding_type = intent.getStringExtra("holding_type");
+        }
+
+        textstocks.setText(Misc_handler.to_Title(holding_type) + "s");
+        textyourstocks.setText("Your " + Misc_handler.to_Title(asset_type) + " " + Misc_handler.to_Title(holding_type) + "s");
+        btnbuystocks.setText("BUY " + Misc_handler.to_Title(holding_type.toUpperCase()) + "S");
+        query = "asset_type=" + asset_type + "&" + "holding_type=" + holding_type;
         btnbuystocks.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent1 = new Intent(StocksActivity2.this, AllAssetsBuy.class);
-                        intent1.putExtra("asset_type", "equity");
-                        intent1.putExtra("holding_type", "stock");
+                        intent1.putExtra("asset_type", asset_type);
+                        intent1.putExtra("holding_type", holding_type);
                         startActivity(intent1);
                     }
                 }
@@ -57,7 +75,7 @@ public class StocksActivity2 extends AppCompatActivity {
         JsonObject requestData = new JsonObject();
         requestData.addProperty("username", username);
         requestData.addProperty("password", password);
-        JsonElement response = api.callGenericApi(requestData, "portfolio_information", "get", "asset_type=equity&holding_type=stock", null, null);
+        JsonElement response = api.callGenericApi(requestData, "portfolio_information", "get", query, null, null);
         JsonArray responseData = response.getAsJsonArray();
 
         if (responseData != null)

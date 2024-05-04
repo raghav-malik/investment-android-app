@@ -152,11 +152,16 @@ class ButtonHandlerEquity implements View.OnClickListener
         if (id == R.id.stocksbtn)
         {
             intent = new Intent(this.context, StocksActivity2.class);
+            intent.putExtra("asset_type", "equity");
+            intent.putExtra("holding_type", "stock");
         }
-//        else if (id == R.id.equityMutualFundsbtn)
-//        {
-//            intent = new Intent(this.context, DebtActivity.class);
-//        }
+        else if (id == R.id.equityMutualFundsbtn)
+        {
+            intent = new Intent(this.context, StocksActivity2.class);
+            intent.putExtra("asset_type", "equity");
+            intent.putExtra("holding_type", "mutual_fund");
+
+        }
 
         context.startActivity(intent);
 
