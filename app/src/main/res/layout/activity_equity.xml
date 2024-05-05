@@ -180,79 +180,108 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/stocksbtn"
-        android:layout_width="251dp"
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:background="@drawable/btnforpurposes"
+        android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:text="Stocks"
-        android:textAlignment="viewStart"
+        android:paddingRight="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout6"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/equityMutualFundsbtn"
-        android:layout_width="251dp"
+        <Button
+            android:id="@+id/stocksbtn"
+            android:layout_width="260dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btnforpurposes"
+            android:drawablePadding="10dp"
+            android:elevation="8dp"
+            android:paddingLeft="10dp"
+            android:text="Stocks"
+            android:textAlignment="viewStart" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/textViewStockspercentage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text=" -70  (-1.40%)"
+                android:textAlignment="center"
+                android:textColor="#27FF00" />
+
+            <TextView
+                android:id="@+id/textViewStockprice"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="(Rs 5000)"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btnforpurposes"
+        android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:text="Mutual Funds"
-        android:textAlignment="viewStart"
-        app:layout_constraintEnd_toEndOf="@+id/stocksbtn"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/stocksbtn"
-        app:layout_constraintTop_toBottomOf="@+id/stocksbtn" />
-
-    <TextView
-        android:id="@+id/textViewStockspercentage"
-        android:layout_width="83dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="32dp"
-        android:text=" -70  (-1.40%)"
-        android:textColor="#FF0000"
+        android:paddingRight="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/stocksbtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
+        app:layout_constraintVertical_bias="0.112">
 
-    <TextView
-        android:id="@+id/textViewStockprice"
-        android:layout_width="86dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="32dp"
-        android:text="(Rs 5000)"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/stocksbtn"
-        app:layout_constraintStart_toEndOf="@+id/stocksbtn"
-        app:layout_constraintTop_toTopOf="@+id/stocksbtn"
-        app:layout_constraintVertical_bias="0.891" />
+        <Button
+            android:id="@+id/equityMutualFundsbtn"
+            android:layout_width="260dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btnforpurposes"
+            android:drawablePadding="10dp"
+            android:elevation="8dp"
+            android:paddingLeft="10dp"
+            android:text="Mutual Funds"
+            android:textAlignment="viewStart" />
 
-    <TextView
-        android:id="@+id/textViewMFpercentage"
-        android:layout_width="92dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="36dp"
-        android:text="+389  (3.89%)"
-        android:textColor="#23B371"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/equityMutualFundsbtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
 
-    <TextView
-        android:id="@+id/textViewmutualfundsprice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:text="(Rs 10000)"
-        app:layout_constraintBottom_toBottomOf="@+id/equityMutualFundsbtn"
-        app:layout_constraintStart_toEndOf="@+id/equityMutualFundsbtn"
-        app:layout_constraintTop_toTopOf="@+id/equityMutualFundsbtn"
-        app:layout_constraintVertical_bias="0.811" />
+            <TextView
+                android:id="@+id/textViewMFpercentage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="+389  (3.89%)"
+                android:textAlignment="center"
+                android:textColor="#27FF00" />
+
+            <TextView
+                android:id="@+id/textViewmutualfundsprice"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="(Rs 10000)"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
