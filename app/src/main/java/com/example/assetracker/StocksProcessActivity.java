@@ -40,7 +40,6 @@ public class StocksProcessActivity extends AppCompatActivity  {
         buttoncurrentvalue_3 = (Button) findViewById(R.id.buttoncurrentvalue_3);
         buttonreturnvaluequity = (Button) findViewById(R.id.buttonreturnvaluequity);
         equityassetstext = (TextView) findViewById(R.id.equityassetstext_process);
-        stocknametext = (TextView) findViewById(R.id.stocknametext);
 
 
         buy = (Button) findViewById(R.id.buystocksbtn);
@@ -72,7 +71,6 @@ public class StocksProcessActivity extends AppCompatActivity  {
             String string_current_price = String.format(Locale.US, "%.2f", current_price);
             salespricetextview.setText(string_current_price);
             equityassetstext.setText(Misc_handler.to_Title(responseData.get("holding_type").toString().replace("\"", "")) + " Information");
-            stocknametext.setText("Current " + Misc_handler.to_Title(responseData.get("holding_type").toString().replace("\"", "")) + " Name");
 
             JsonObject user_information = responseData.get("user_information").getAsJsonObject();
 

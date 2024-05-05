@@ -80,8 +80,8 @@ public class StocksActivity2 extends Refresher {
         requestData.addProperty("username", username);
         requestData.addProperty("password", password);
         JsonElement response = api.callGenericApi(requestData, "portfolio_information", "get", query, null, null);
-        JsonArray responseData = response.getAsJsonArray();
         JsonObject responseData1 = response.getAsJsonObject();
+        JsonArray responseData = responseData1.get("stocks").getAsJsonArray();
 
         if(responseData1 != null){
             String InvestedStr = responseData1.get("invested").getAsString();
