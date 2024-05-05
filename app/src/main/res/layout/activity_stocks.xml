@@ -190,7 +190,7 @@
 
         <Button
             android:id="@+id/btnEquity"
-            android:layout_width="260dp"
+            android:layout_width="230dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/btnforpurposes"
@@ -244,7 +244,7 @@
 
         <Button
             android:id="@+id/btndebt"
-            android:layout_width="260dp"
+            android:layout_width="230dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/btnforpurposes"
@@ -297,7 +297,7 @@
 
         <Button
             android:id="@+id/btngold"
-            android:layout_width="260dp"
+            android:layout_width="230dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/btnforpurposes"
