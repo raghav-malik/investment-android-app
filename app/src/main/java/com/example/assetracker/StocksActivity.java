@@ -2,11 +2,11 @@ package com.example.assetracker;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +24,7 @@ public class StocksActivity extends Refresher {
             textViewdebtreturns, textViewdebtprice,
             textViewgoldreturns, textViewgoldprice, textPortfolio;
     Button buttonpercentagereturns_home, buttoncurrentvalue_home,buttoncurrentvalue_1_home;
+    ImageView imageView4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,18 @@ public class StocksActivity extends Refresher {
         textViewgoldreturns=findViewById(R.id.textViewgoldreturns);
         textViewgoldprice=findViewById(R.id.textViewgoldprice);
         textPortfolio = findViewById(R.id.textPortfolio);
+        sharedPreferences = getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE);
+
+        imageView4 =(ImageView) findViewById(R.id.imageView4);
+
+        imageView4.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        updateUserPrice();
+                    }
+                }
+        );
 
         fetchDataForPortfolio();
 
@@ -53,8 +66,6 @@ public class StocksActivity extends Refresher {
     }
 
     private void fetchDataForPortfolio() {
-        SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE);
-
 
         String username = sharedPreferences.getString("username", "admin").replace("\"", "");
         String password = sharedPreferences.getString("password", "123456789").replace("\"", "");

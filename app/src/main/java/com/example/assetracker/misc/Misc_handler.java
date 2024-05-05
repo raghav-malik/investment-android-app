@@ -1,5 +1,6 @@
 package com.example.assetracker.misc;
 
+import android.content.SharedPreferences;
 import android.widget.TextView;
 
 import com.google.gson.JsonArray;
@@ -92,6 +93,17 @@ public class Misc_handler {
     public static String to_returns(double return_value, double return_percentage)
     {
         return format(return_value) + " (" + format(return_percentage) + ")";
+    }
+
+    public static JsonObject get_sharedpreferencesob(SharedPreferences sharedPreferences)
+    {
+        String username = sharedPreferences.getString("username", "admin").replace("\"", "");
+        String password = sharedPreferences.getString("password", "123456789").replace("\"", "");
+        JsonObject requestData = new JsonObject();
+        requestData.addProperty("username", username);
+        requestData.addProperty("password", password);
+
+        return requestData;
     }
 
 }
