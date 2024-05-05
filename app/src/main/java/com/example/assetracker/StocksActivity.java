@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,33 +19,30 @@ import java.util.Locale;
 
 public class StocksActivity extends Refresher {
 
-    TextView textPortfolio, investedAmt, textViewreturnsEquity, textViewEquityInvested
-    , textViewdebtreturns, textViewdebtprice, textViewgoldreturns, textViewgoldprice
-    , textViewrealestatereturns, textViewrealestateprice;
+    TextView  investedAmt, textViewreturnsEquity, textViewEquityInvested, textViewdebtreturns, textViewdebtprice, textViewgoldreturns, textViewgoldprice;
+    Button buttonpercentagereturns_home, buttoncurrentvalue_home,buttoncurrentvalue_1_home;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
         setContentView(R.layout.activity_stocks);
-
-        textPortfolio = findViewById(R.id.textPortfolio);
-        investedAmt = findViewById(R.id.textView4);
+        investedAmt=findViewById(R.id.textViewinvested_home);
+        buttonpercentagereturns_home=findViewById(R.id.buttonpercentagereturns_home);
+        buttoncurrentvalue_home=findViewById(R.id.buttoncurrentvalue_home);
+        buttoncurrentvalue_1_home=findViewById(R.id.buttoncurrentvalue_1_home);
         textViewreturnsEquity=findViewById(R.id.textViewreturnsEquity);
         textViewEquityInvested=findViewById(R.id.textViewEquityInvested);
         textViewdebtreturns=findViewById(R.id.textViewdebtreturns);
         textViewdebtprice=findViewById(R.id.textViewdebtprice);
         textViewgoldreturns=findViewById(R.id.textViewgoldreturns);
         textViewgoldprice=findViewById(R.id.textViewgoldprice);
-        textViewrealestatereturns=findViewById(R.id.textViewrealestatereturns);
-        textViewrealestateprice=findViewById(R.id.textViewrealestateprice);
         fetchDataForPortfolio();
 
 
         ButtonHandlerHome buttonhandlerhome  = new ButtonHandlerHome(this);
         findViewById(R.id.btnEquity).setOnClickListener(buttonhandlerhome);
         findViewById(R.id.btndebt).setOnClickListener(buttonhandlerhome);
-        findViewById(R.id.btnrealestate).setOnClickListener(buttonhandlerhome);
         findViewById(R.id.btngold).setOnClickListener(buttonhandlerhome);
 
     }
@@ -68,6 +66,23 @@ public class StocksActivity extends Refresher {
             double totalInvested = Double.parseDouble(InvestedStr);
             String totalInvestedAmountString = String.format(Locale.US, "%.2f", totalInvested);
             investedAmt.setText(totalInvestedAmountString);
+
+            String current_val = responseData.get("current_value").getAsString();
+            double current_value = Double.parseDouble(current_val);
+            String curr = String.format(Locale.US, "%.2f", current_value);
+            buttoncurrentvalue_home.setText(curr);
+
+            String returns_val = responseData.get("returns_value").getAsString();
+            double returns_value = Double.parseDouble(returns_val);
+            String returns = String.format(Locale.US, "%.2f", returns_value);
+            buttoncurrentvalue_1_home.setText(returns);
+
+            String returns_per = responseData.get("returns_percentage").getAsString();
+            double returns_percent = Double.parseDouble(returns_per);
+            String percent = String.format(Locale.US, "%.2f", returns_percent);
+            buttonpercentagereturns_home.setText(percent);
+
+
             // Equity
             JsonObject equity = responseData.getAsJsonObject("equity");
             if(equity != null) {
@@ -152,33 +167,7 @@ public class StocksActivity extends Refresher {
                 Toast.makeText(this, "Failed to get gold data", Toast.LENGTH_SHORT).show();
             }
 
-            //realEstate
-            JsonObject realEstate = responseData.getAsJsonObject("real_estate");
-            if(realEstate != null) {
-                String realEstateInvestedStr = realEstate.get("invested").getAsString();
-                double realEstateInvested = Double.parseDouble(realEstateInvestedStr);
 
-                String realEstateReturnsValueStr = realEstate.get("returns_value").getAsString();
-                double realEstateReturnsValue = Double.parseDouble(realEstateReturnsValueStr);
-
-                String realEstateReturnsPercentageStr = realEstate.get("returns_percentage").getAsString();
-                double realEstateReturnsPercentage = Double.parseDouble(realEstateReturnsPercentageStr);
-
-                String realEstateInvestedAmountString = String.format(Locale.US, "%.2f", realEstateInvested);
-                textViewrealestateprice.setText(realEstateInvestedAmountString);
-
-                String realEstatereturnsString = String.format(Locale.US, "%.2f (%s%%)", realEstateReturnsValue, realEstateReturnsPercentage);
-                textViewrealestatereturns.setText(realEstatereturnsString);
-
-                if (realEstateReturnsValue >= 0) {
-                    textViewrealestatereturns.setTextColor(Color.GREEN);
-                } else {
-                    textViewrealestatereturns.setTextColor(Color.RED);
-                }
-            }
-            else{
-                Toast.makeText(this, "Failed to get real estate data", Toast.LENGTH_SHORT).show();
-            }
 
         } else {
             Toast.makeText(this, "Failed to fetch data for portfolio", Toast.LENGTH_SHORT).show();
@@ -206,10 +195,6 @@ class ButtonHandlerHome implements View.OnClickListener
         else if (id == R.id.btndebt)
         {
             intent = new Intent(this.context, DebtActivity.class);
-        }
-        else if (id == R.id.btnrealestate)
-        {
-            intent = new Intent(this.context, RealEstateActivity.class);
         }
         else if (id == R.id.btngold)
         {
