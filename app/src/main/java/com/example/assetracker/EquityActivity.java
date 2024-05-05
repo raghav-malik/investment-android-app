@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.assetracker.API.api;
+import com.example.assetracker.misc.Misc_handler;
 import com.example.assetracker.misc.Refresher;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -90,8 +91,7 @@ public class EquityActivity extends Refresher {
                 String stocksInvestedAmountString = String.format(Locale.US, "%.2f", stocksInvested);
                 textViewstocksprice.setText(stocksInvestedAmountString);
 
-                String stocksreturnsString = String.format(Locale.US, "%.2f (%s%%)", stocksReturnsValue, stocksReturnsPercentage);
-                textViewstockspercentage.setText(stocksreturnsString);
+                textViewstockspercentage.setText(Misc_handler.to_returns(stocksReturnsValue ,stocksReturnsPercentage));
 
                 if (stocksReturnsValue >= 0) {
                     textViewstockspercentage.setTextColor(Color.GREEN);
@@ -117,8 +117,8 @@ public class EquityActivity extends Refresher {
                 String MFInvestedAmountString = String.format(Locale.US, "%.2f", MFInvested);
                 textViewmutualfundsprice.setText(MFInvestedAmountString);
 
-                String MFreturnsString = String.format(Locale.US, "%.2f (%s%%)", MFReturnsValue, MFReturnsPercentage);
-                textViewmutualfundspercentage.setText(MFreturnsString);
+                textViewmutualfundspercentage.setText(Misc_handler.to_returns(MFReturnsValue ,MFReturnsPercentage));
+
 
                 if (MFReturnsValue >= 0) {
                     textViewmutualfundspercentage.setTextColor(Color.GREEN);

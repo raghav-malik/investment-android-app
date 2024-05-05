@@ -194,7 +194,7 @@
 
         <Button
             android:id="@+id/stocksbtn"
-            android:layout_width="260dp"
+            android:layout_width="230dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/btnforpurposes"
@@ -247,7 +247,7 @@
 
         <Button
             android:id="@+id/equityMutualFundsbtn"
-            android:layout_width="260dp"
+            android:layout_width="230dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/btnforpurposes"

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.assetracker.API.api;
+import com.example.assetracker.misc.Misc_handler;
 import com.example.assetracker.misc.Refresher;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -95,8 +96,7 @@ public class DebtActivity extends Refresher {
                 String MFInvestedAmountString = String.format(Locale.US, "%.2f", MFInvested);
                 textViewInvestedMF.setText(MFInvestedAmountString);
 
-                String MFreturnsString = String.format(Locale.US, "%.2f (%s%%)", MFReturnsValue, MFReturnsPercentage);
-                textViewreturnsMF.setText(MFreturnsString);
+                textViewreturnsMF.setText(Misc_handler.to_returns(MFReturnsValue ,MFReturnsPercentage));
 
                 if (MFReturnsValue >= 0) {
                     textViewreturnsMF.setTextColor(Color.GREEN);
