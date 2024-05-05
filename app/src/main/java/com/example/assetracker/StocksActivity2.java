@@ -91,7 +91,7 @@ public class StocksActivity2 extends Refresher {
 
                 Button button = new Button(this);
                 LayoutParams buttonParams = new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1f);
-                buttonParams.setMargins(0, 25, 0, 0);
+                buttonParams.setMargins(50, 25, 50, 0);
                 button.setLayoutParams(buttonParams);
                 button.setText(json_object.get("show_name").toString().replace("\"",""));
                 button.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);

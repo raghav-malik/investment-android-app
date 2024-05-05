@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Misc_handler {
     public static ArrayList<TextView> is_textview_empty(TextView arr[])
@@ -80,6 +81,17 @@ public class Misc_handler {
     {
         string = string.replace("_", " ");
         return Character.toUpperCase(string.charAt(0)) + string.substring(1);
+    }
+
+    public static String format(double value)
+    {
+        String output = String.format(Locale.US, "%.2f", value);
+        return output;
+
+    }
+    public static String to_returns(double return_value, double return_percentage)
+    {
+        return format(return_value) + " (" + format(return_percentage) + ")";
     }
 
 }

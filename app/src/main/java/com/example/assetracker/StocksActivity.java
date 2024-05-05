@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.assetracker.API.api;
+import com.example.assetracker.misc.Misc_handler;
 import com.example.assetracker.misc.Refresher;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -19,7 +20,9 @@ import java.util.Locale;
 
 public class StocksActivity extends Refresher {
 
-    TextView  investedAmt, textViewreturnsEquity, textViewEquityInvested, textViewdebtreturns, textViewdebtprice, textViewgoldreturns, textViewgoldprice;
+    TextView  investedAmt, textViewreturnsEquity, textViewEquityInvested,
+            textViewdebtreturns, textViewdebtprice,
+            textViewgoldreturns, textViewgoldprice, textPortfolio;
     Button buttonpercentagereturns_home, buttoncurrentvalue_home,buttoncurrentvalue_1_home;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,8 @@ public class StocksActivity extends Refresher {
         textViewdebtprice=findViewById(R.id.textViewdebtprice);
         textViewgoldreturns=findViewById(R.id.textViewgoldreturns);
         textViewgoldprice=findViewById(R.id.textViewgoldprice);
+        textPortfolio = findViewById(R.id.textPortfolio);
+
         fetchDataForPortfolio();
 
 
@@ -62,6 +67,9 @@ public class StocksActivity extends Refresher {
 
 
         if (responseData != null) {
+            textPortfolio.setText(
+                    Misc_handler.to_Title(sharedPreferences.getString("first_name", "raghav").replace("\"", "")) + "'s Portfolio"
+            );
             String InvestedStr = responseData.get("invested").getAsString();
             double totalInvested = Double.parseDouble(InvestedStr);
             String totalInvestedAmountString = String.format(Locale.US, "%.2f", totalInvested);
@@ -98,8 +106,8 @@ public class StocksActivity extends Refresher {
                 String equityInvestedAmountString = String.format(Locale.US, "%.2f", equityInvested);
                 textViewEquityInvested.setText(equityInvestedAmountString);
 
-                String equityreturnsString = String.format(Locale.US, "%.2f (%s%%)", equityReturnsValue, equityReturnsPercentage);
-                textViewreturnsEquity.setText(equityreturnsString);
+//                String equityreturnsString = String.format(Locale.US, "%.2f (%s%%)", equityReturnsValue, equityReturnsPercentage);
+                textViewreturnsEquity.setText(Misc_handler.to_returns(equityReturnsValue ,equityReturnsPercentage));
 
                 if (equityReturnsValue >= 0) {
                     textViewreturnsEquity.setTextColor(Color.GREEN);

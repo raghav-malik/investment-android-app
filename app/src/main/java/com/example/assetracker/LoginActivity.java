@@ -81,6 +81,7 @@ class ButtonHandlerLogin implements View.OnClickListener
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("username", user.get("username").toString());
                 editor.putString("password", user.get("password").toString());
+                editor.putString("first_name", json.get("first_name").toString());
                 editor.putBoolean("isLoggedIn", true);
                 editor.apply();
                 System.out.println("Logged In");
