@@ -180,45 +180,57 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btngoldeft"
-        android:layout_width="251dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/btnforpurposes"
+        android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:text="Gold ETF's"
-        android:textAlignment="viewStart"
+        android:paddingRight="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.135">
 
-    <TextView
-        android:id="@+id/textViewgoldETFpercentage"
-        android:layout_width="95dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="32dp"
-        android:text=" -102  (-2.04%)"
-        android:textColor="#FF0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btngoldeft"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483" />
+        <Button
+            android:id="@+id/btngoldeft"
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btnforpurposes"
+            android:drawablePadding="10dp"
+            android:elevation="8dp"
+            android:paddingLeft="10dp"
+            android:text="Gold ETF's"
+            android:textAlignment="viewStart" />
 
-    <TextView
-        android:id="@+id/textViewgoldETFprice"
-        android:layout_width="86dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="32dp"
-        android:text="(Rs 5000)"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/btngoldeft"
-        app:layout_constraintStart_toEndOf="@+id/btngoldeft"
-        app:layout_constraintTop_toTopOf="@+id/btngoldeft"
-        app:layout_constraintVertical_bias="0.717" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/textViewgoldETFpercentage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text=" -102  (-2.04%)"
+                android:textAlignment="center"
+                android:textColor="#27FF00" />
+
+            <TextView
+                android:id="@+id/textViewgoldETFprice"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="(Rs 5000)"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

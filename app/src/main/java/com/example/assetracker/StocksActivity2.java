@@ -19,10 +19,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import java.util.Locale;
+
 public class StocksActivity2 extends Refresher {
     LinearLayout stocks_linearlayout_dynamic;
-    TextView textstocks, textyourstocks;
-    Button btnbuystocks;
+    TextView textstocks, textyourstocks,textViewinveststocks_1;
+    Button btnbuystocks,buttonpercentagereturnsstocks, buttoncurrentvaluestocks, buttonreturnsstocks;
     String asset_type, holding_type, query;
 
     @Override
@@ -35,6 +37,10 @@ public class StocksActivity2 extends Refresher {
         btnbuystocks = (Button) findViewById(R.id.btnbuystocks);
         textstocks = (TextView) findViewById(R.id.textstocks);
         textyourstocks = (TextView) findViewById(R.id.textyourstocks);
+        textViewinveststocks_1 = (TextView) findViewById(R.id.textViewinveststocks_1);
+        buttonpercentagereturnsstocks =  findViewById(R.id.buttonpercentagereturnsstocks);
+        buttoncurrentvaluestocks =  findViewById(R.id.buttoncurrentvaluestocks);
+        buttonreturnsstocks =  findViewById(R.id.buttonreturnsstocks);
 
         Intent intent = getIntent();
         if (intent != null)
@@ -75,6 +81,29 @@ public class StocksActivity2 extends Refresher {
         requestData.addProperty("password", password);
         JsonElement response = api.callGenericApi(requestData, "portfolio_information", "get", query, null, null);
         JsonArray responseData = response.getAsJsonArray();
+        JsonObject responseData1 = response.getAsJsonObject();
+
+        if(responseData1 != null){
+            String InvestedStr = responseData1.get("invested").getAsString();
+            double totalInvested = Double.parseDouble(InvestedStr);
+            String totalInvestedAmountString = String.format(Locale.US, "%.2f", totalInvested);
+            textViewinveststocks_1.setText(totalInvestedAmountString);
+
+            String current_val = responseData1.get("current_value").getAsString();
+            double current_value = Double.parseDouble(current_val);
+            String curr = String.format(Locale.US, "%.2f", current_value);
+            buttoncurrentvaluestocks.setText(curr);
+
+            String returns_val = responseData1.get("returns_value").getAsString();
+            double returns_value = Double.parseDouble(returns_val);
+            String returns = String.format(Locale.US, "%.2f", returns_value);
+            buttonreturnsstocks.setText(returns);
+
+            String returns_per = responseData1.get("returns_percentage").getAsString();
+            double returns_percent = Double.parseDouble(returns_per);
+            String percent = String.format(Locale.US, "%.2f", returns_percent);
+            buttonpercentagereturnsstocks.setText(percent);
+        }
 
         if (responseData != null)
         {
@@ -113,6 +142,7 @@ public class StocksActivity2 extends Refresher {
 
                 stocks_linearlayout_dynamic.addView(rowLayout);
             }
+
 
         }
         else{

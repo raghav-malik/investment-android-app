@@ -117,7 +117,7 @@ public class StocksActivity extends Refresher {
                 String equityInvestedAmountString = String.format(Locale.US, "%.2f", equityInvested);
                 textViewEquityInvested.setText(equityInvestedAmountString);
 
-//                String equityreturnsString = String.format(Locale.US, "%.2f (%s%%)", equityReturnsValue, equityReturnsPercentage);
+
                 textViewreturnsEquity.setText(Misc_handler.to_returns(equityReturnsValue ,equityReturnsPercentage));
 
                 if (equityReturnsValue >= 0) {
@@ -145,8 +145,7 @@ public class StocksActivity extends Refresher {
                 String debtInvestedAmountString = String.format(Locale.US, "%.2f", debtInvested);
                 textViewdebtprice.setText(debtInvestedAmountString);
 
-                String debtreturnsString = String.format(Locale.US, "%.2f (%s%%)", debtReturnsValue, debtReturnsPercentage);
-                textViewdebtreturns.setText(debtreturnsString);
+                textViewdebtreturns.setText(Misc_handler.to_returns(debtReturnsValue ,debtReturnsPercentage));
 
                 if (debtReturnsValue >= 0) {
                     textViewdebtreturns.setTextColor(Color.GREEN);
@@ -173,8 +172,7 @@ public class StocksActivity extends Refresher {
                 String goldInvestedAmountString = String.format(Locale.US, "%.2f", goldInvested);
                 textViewgoldprice.setText(goldInvestedAmountString);
 
-                String goldreturnsString = String.format(Locale.US, "%.2f (%s%%)", goldReturnsValue, goldReturnsPercentage);
-                textViewgoldreturns.setText(goldreturnsString);
+                textViewgoldreturns.setText(Misc_handler.to_returns(goldReturnsValue ,goldReturnsPercentage));
 
                 if (goldReturnsValue >= 0) {
                     textViewgoldreturns.setTextColor(Color.GREEN);

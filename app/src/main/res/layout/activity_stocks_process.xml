@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".EquityActivity">
 
+
     <Button
         android:id="@+id/sellstocksbtn"
         android:layout_width="wrap_content"
@@ -14,10 +15,11 @@
         android:text="SELL"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.749"
+        app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906" />
+        app:layout_constraintVertical_bias="0.976" />
+
     <Button
         android:id="@+id/buystocksbtn"
         android:layout_width="wrap_content"
@@ -26,39 +28,25 @@
         android:text="BUY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906" />
-
-
-    <TextView
-        android:id="@+id/stocknametext"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:background="@drawable/styletexts"
-        android:ems="10"
-        android:text="Current Stock Name"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.037"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <TextView
         android:id="@+id/quantitytextview"
         android:layout_width="55dp"
         android:layout_height="29dp"
         android:text="15"
+        android:textAlignment="center"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintHorizontal_bias="0.929"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout6" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout6"
+        app:layout_constraintVertical_bias="0.568" />
 
     <TextView
         android:id="@+id/priceandquantitytext"
@@ -71,41 +59,46 @@
         android:text="Quantity"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689" />
+        app:layout_constraintVertical_bias="0.77" />
 
     <TextView
         android:id="@+id/salespricetextview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85dp"
+        android:layout_height="53dp"
         android:text="Rs 1.03"
-        android:textColor="#00FF0A"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.909"
+        app:layout_constraintHorizontal_bias="0.987"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.684" />
 
     <TextView
         android:id="@+id/stockbtnactivities"
-        android:layout_width="108dp"
-        android:layout_height="40dp"
+        android:layout_width="404dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:background="@drawable/btnforpurchases"
-        android:text="IRCTC"
+        android:text="indian railway and catering operation"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/stocknametext"
-        app:layout_constraintHorizontal_bias="0.026"
-        app:layout_constraintStart_toStartOf="@+id/stocknametext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.445" />
 
     <LinearLayout
         android:id="@+id/linearLayout6"
@@ -292,27 +285,48 @@
         android:id="@+id/quantity_operation"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="136dp"
         android:minHeight="48dp"
         android:text="0"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/priceandquantitytext"
-        app:layout_constraintVertical_bias="0.642" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="41dp"
-        android:layout_height="26dp"
-        android:text="/"
-        android:textSize="20sp"
+        android:id="@+id/sharesavailabletextview"
+        android:layout_width="196dp"
+        android:layout_height="52dp"
+        android:background="@drawable/btnforpurchases"
+        android:text="Shares Available:"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.837"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.569" />
+
+    <TextView
+        android:id="@+id/buypricetextview"
+        android:layout_width="194dp"
+        android:layout_height="46dp"
+        android:background="@drawable/btnforpurchases"
+        android:text="Buy Price:"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.663" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

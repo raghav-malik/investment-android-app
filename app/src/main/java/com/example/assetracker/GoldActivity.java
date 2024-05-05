@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.assetracker.API.api;
+import com.example.assetracker.misc.Misc_handler;
 import com.example.assetracker.misc.Refresher;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -98,8 +99,7 @@ public class GoldActivity extends Refresher {
                 String stocksInvestedAmountString = String.format(Locale.US, "%.2f", stocksInvested);
                 textViewgoldetfprice.setText(stocksInvestedAmountString);
 
-                String stocksreturnsString = String.format(Locale.US, "%.2f (%s%%)", stocksReturnsValue, stocksReturnsPercentage);
-                textViewgoldetfpercentage.setText(stocksreturnsString);
+                textViewgoldetfpercentage.setText(Misc_handler.to_returns(stocksReturnsValue ,stocksReturnsPercentage));
 
                 if (stocksReturnsValue >= 0) {
                     textViewgoldetfpercentage.setTextColor(Color.GREEN);
